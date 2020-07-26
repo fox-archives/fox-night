@@ -1,0 +1,11 @@
+---
+- name: Create Op User
+  user:
+    state: present
+    name: '{{ user }}'
+    append: yes
+    comment: Operator
+    groups:
+      - sudo
+    password: '{{ password }}'
+    shell: /bin/bash

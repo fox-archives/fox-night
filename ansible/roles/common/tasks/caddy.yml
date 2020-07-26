@@ -1,0 +1,27 @@
+---
+# - name: Install Caddy Repository
+#   apt_repository:
+#     state: present
+#     repo: deb [trusted=yes] https://apt.fury.io/caddy focal main
+#     filename: caddy-fury
+# - name: Install Caddy
+#   apt:
+#     name:
+#       - caddy
+
+- name: Install Caddy
+  apt:
+    state: present
+    deb: '{{ caddy_deb }}'
+
+- name: Copy Configuration
+  copy:
+    src: Caddyfile
+    dest: /etc/caddy/Caddyfile
+
+- name: Start Systemd
+  systemd:
+    name: caddy
+    state: started
+    daemon_reload: yes
+    enabled: yes

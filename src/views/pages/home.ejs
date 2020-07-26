@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+	<video id="player" playsinline controls poster="/media/poster.jpg">
+		<source src="/video" type="video/mp4" />
+		<track
+			kind="captions"
+			label="English!"
+			src="/media/captions.vtt"
+			srclang="en"
+			default
+		/>
+	</video>
+	<div style="display: flex;">
+		<section>
+			<!-- <img id="fresh" src="https://www.rottentomatoes.com/static/images/icons/cf-lg.png"></img> -->
+			<h1><%= title %></h1>
+			<h2>Summary</h2>
+			<p><%= summary %></p>
+
+			<h2>Director(s)</h2>
+			<p><%= director %></p>
+		</section>
+		<section style="min-width: 350px;">
+			<h1>Controls</h1>
+			<h2>Progress</h2>
+			<p id="time"></p>
+			<h2>Jump</h2>
+			<button class="jump-button" onclick="aa(1)">+1 Sec</button>
+			<button class="jump-button" onclick="aa(-1)">-1 Sec</button>
+			<button class="jump-button" onclick="aa(5)">+5 Sec</button>
+			<button class="jump-button" onclick="aa(-5)">-5 Sec</button>
+			<h2 class="home-watchers">Watchers</h2>
+			<table>
+				<thead></thead>
+				<tbody></tbody>
+			</table>
+			<div><div id="watchers"></div></div>
+		</section>
+	</div>
+</main>
+
+<%- include('../partials/footer.ejs') %>

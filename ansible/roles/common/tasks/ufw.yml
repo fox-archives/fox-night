@@ -1,0 +1,12 @@
+---
+- name: Deny all Default
+  community.general.ufw:
+    state: enabled
+    default: deny
+
+- name: Enable HTTPS
+  ufw:
+    state: enabled
+    rule: allow
+    port: '443'
+    proto: tcp

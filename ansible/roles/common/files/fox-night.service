@@ -1,0 +1,15 @@
+[Unit]
+Description=Fox Night Starter Service
+
+[Service]
+User=op
+WorkingDirectory=/home/op/fox-night
+ExecStart=/usr/bin/npm start
+ExecStop=/usr/bin/kill $MAINPID
+StandardInput=tty
+TTYPath=/dev/tty20
+TTYReset=yes
+TTYVHangup=yes
+
+[Install]
+WantedBy=multi-user.target

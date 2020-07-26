@@ -1,0 +1,12 @@
+---
+- name: Copy System Unit
+  copy:
+    src: fox-night.service
+    dest: /etc/systemd/system
+
+- name: Start and Enable fox-night.service
+  systemd:
+    name: fox-night
+    state: started
+    daemon_reload: yes
+    enabled: yes

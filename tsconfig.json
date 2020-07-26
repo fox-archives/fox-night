@@ -1,0 +1,15 @@
+{
+	"include": ["src"],
+	"exclude": ["public"],
+	"compilerOptions": {
+		"rootDir": "src",
+		"target": "ES2017",
+		"module": "CommonJS",
+		"baseUrl": ".",
+		"inlineSourceMap": true,
+		"noImplicitAny": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"useDefineForClassFields": true
+	}
+}

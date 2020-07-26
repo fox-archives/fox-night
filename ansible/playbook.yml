@@ -1,0 +1,8 @@
+---
+- name: Configure Fox Night
+  hosts: main
+  gather_facts: true
+  vars: {}
+  roles:
+    - role: common
+      tag: common

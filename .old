@@ -1,0 +1,12 @@
+# RSYNC_ARGS := "--progress -av -e 'ssh -i {{ SSH_KEY }}'"
+# # syncs up new movie
+# sync:
+# 	rsync {{ RSYNC_ARGS }} \
+# 		local {{ REMOTE_USER }}@`./ip.sh`:/home/{{ REMOTE_USER }}/fox-night/local
+
+# # sync up source code
+# source-sync:
+# 	rsync {{ RSYNC_ARGS }} \
+# 		--exclude=node_modules \
+# 		--exclude=local \
+# 		. {{ LOCAL_USER }}@`./ip.sh`:/home/{{ REMOTE_USER }}/fox-night
