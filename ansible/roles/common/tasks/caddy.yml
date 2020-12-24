@@ -14,8 +14,8 @@
     state: present
     deb: '{{ caddy_deb }}'
 
-- name: Copy Configuration
-  copy:
+- name: Template Configuration
+  template:
     src: Caddyfile
     dest: /etc/caddy/Caddyfile
 

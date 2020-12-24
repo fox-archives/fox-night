@@ -9,3 +9,7 @@ variable "digital_ocean_token" {
 variable "domain_name" {
 	type = string
 }
+
+variable "folder_name" {
+	type = string
+}

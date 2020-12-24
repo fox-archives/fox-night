@@ -29,10 +29,11 @@ yarn build && yarn start
 ### Deployment
 
 -  Place DigitalOcean API Key in `terraform/terraform.tfvars`
--  Specify domain name in `terraform/terraform.tfvars`
+-  Specify domain name in `terraform/terraform.tfvars` and `./ansible/roles/common/vars/main.yml`
    -  Ensure registrar is pointing to DigitalOcean's name servers (`ns1.digitalocean.com`). (We will handle the rest)
 -  Check `./ansible/roles/common/vars/main.yml` and replace any if needed
-   -  password is 'ubuntu' hashed. use `just prepare-password` if want to create new one
+   -  password is 'ubuntu' hashed. (use `just prepare-password` if want to create new one)
+   -  note: chaning `folder_name` has not been tested
 
 ```sh
 git clone https://github.com/eankeen/fox-night

@@ -1,6 +1,6 @@
 ---
 - name: Copy System Unit
-  copy:
+  template:
     src: fox-night.service
     dest: /etc/systemd/system
 

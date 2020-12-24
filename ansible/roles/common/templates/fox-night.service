@@ -3,7 +3,7 @@ Description=Fox Night Starter Service
 
 [Service]
 User=op
-WorkingDirectory=/home/op/fox-night
+WorkingDirectory=/home/{{ user }}/{{ folder_name }}
 ExecStart=/usr/bin/npm start
 ExecStop=/usr/bin/kill $MAINPID
 StandardInput=tty

@@ -28,7 +28,7 @@ resource "digitalocean_ssh_key" "fox_night_ssh_key" {
 # droplet
 resource "digitalocean_droplet" "fox_night_droplet" {
 	image  = "ubuntu-20-04-x64"
-	name   = "fox-night"
+	name   = var.folder_name
 	region = "nyc1"
 	size   = "s-2vcpu-4gb"
 	monitoring = true

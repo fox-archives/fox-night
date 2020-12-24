@@ -1,8 +1,12 @@
 ---
-- name: Update Cache
+- name: Update Cache & Upgrade
   apt:
     update_cache: yes
     upgrade: safe
+  register: apt_status
+  until: apt_status is success
+  delay: 6
+  retries: 10
 
 - name: Create User
   import_tasks: user.yml
@@ -41,12 +45,12 @@
   block:
     - name: Install
       command:
-        chdir: /home/op/fox-night
+        chdir: /home/{{ user }}/{{ folder_name }}
         cmd: npm install
 
     - name: Compile
       command:
-        chdir: /home/op/fox-night
+        chdir: /home/{{ user }}/{{ folder_name }}
         cmd: npm run build
   tags: build
 
