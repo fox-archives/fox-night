@@ -1,3 +1,7 @@
 {{ domain_name }}
 
-reverse_proxy localhost:{{ port }}
+reverse_proxy localhost:{{ node_port }}
+
+basicauth /* scrypt {
+	{{ web_username }} {{ web_password_hashed }}
+}

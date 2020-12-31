@@ -43,12 +43,12 @@
 
 - name: Prepare Application
   block:
-    - name: Install
+    - name: npm install
       command:
         chdir: /home/{{ user }}/{{ folder_name }}
         cmd: npm install
 
-    - name: Compile
+    - name: npm run build
       command:
         chdir: /home/{{ user }}/{{ folder_name }}
         cmd: npm run build

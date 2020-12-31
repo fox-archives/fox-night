@@ -14,12 +14,20 @@
     state: present
     deb: '{{ caddy_deb }}'
 
+- name: Generate Password
+  shell: echo '{{ web_password }}' | caddy hash-password -algorithm scrypt
+  register: hashed_password
+
+- name: Set Fact
+  set_fact:
+    web_password_hashed: '{{ hashed_password.stdout }}'
+
 - name: Template Configuration
   template:
     src: Caddyfile
     dest: /etc/caddy/Caddyfile
 
-- name: Start Systemd
+- name: Start Systemd Caddy
   systemd:
     name: caddy
     state: started

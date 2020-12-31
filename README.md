@@ -41,7 +41,6 @@ Variables contained within this IAC should be flexible enough to cater to you. T
 - `password`, `user`
 
   - default password and user for the VPS
-  - Use `just prepare-password` to generate a new one
 
 - `domain_name`
 
@@ -52,7 +51,15 @@ Variables contained within this IAC should be flexible enough to cater to you. T
 
   - folder name within `/home/{{ user }}` to rsync the source code to. This also changes the name of the systemd service file
 
-- `port`
+- `web_username`
+
+  - username to enter when navigating to site (by defualt, `user`)
+
+- `web_password`
+
+  - password to enter when navigating to site (by default, the same value as `folder_name`)
+
+- `node_port`
 
   - port that the NodeJS server attaches to
 

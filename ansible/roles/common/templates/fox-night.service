@@ -2,7 +2,7 @@
 Description=Fox Night Starter Service
 
 [Service]
-Environment=PORT={{ port }}
+Environment=PORT={{ node_port }}
 User={{ user }}
 WorkingDirectory=/home/{{ user }}/{{ folder_name }}
 ExecStart=/usr/bin/npm start
