@@ -8,7 +8,7 @@
   delay: 6
   retries: 10
 
-- name: Create User
+- name: Create '{{ user }}' User
   import_tasks: user.yml
   tags: user
 

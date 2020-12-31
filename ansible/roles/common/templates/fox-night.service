@@ -2,7 +2,8 @@
 Description=Fox Night Starter Service
 
 [Service]
-User=op
+Environment=PORT={{ port }}
+User={{ user }}
 WorkingDirectory=/home/{{ user }}/{{ folder_name }}
 ExecStart=/usr/bin/npm start
 ExecStop=/usr/bin/kill $MAINPID

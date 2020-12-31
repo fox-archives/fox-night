@@ -1,12 +1,12 @@
 ---
 - name: Copy System Unit
   template:
-    src: fox-night.service
+    src: '{{ folder_name }}.service'
     dest: /etc/systemd/system
 
-- name: Start and Enable fox-night.service
+- name: Start and Enable {{ folder_name }}.service
   systemd:
-    name: fox-night
+    name: '{{ folder_name }}'
     state: started
     daemon_reload: yes
     enabled: yes

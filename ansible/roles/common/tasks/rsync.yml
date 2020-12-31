@@ -5,7 +5,7 @@
     archive: yes
     private_key: ../../../../ssh_key
     src: ../../../../
-    dest: /home/{{ user }}/fox-night
+    dest: /home/{{ user }}/{{ folder_name }}
     delete: yes
     rsync_opts:
       - '--exclude'
@@ -20,5 +20,5 @@
     archive: yes
     private_key: ../../../../ssh_key
     src: ../../../../local
-    dest: /home/{{ user }}/fox-night
+    dest: /home/{{ user }}/{{ folder_name }}
     delete: yes

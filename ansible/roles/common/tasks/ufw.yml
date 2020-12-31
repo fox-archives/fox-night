@@ -10,3 +10,17 @@
     rule: allow
     port: '443'
     proto: tcp
+
+- name: Enable HTTP
+  ufw:
+    state: enabled
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: Enable SSH
+  ufw:
+    state: enabled
+    rule: allow
+    port: '22'
+    proto: tcp

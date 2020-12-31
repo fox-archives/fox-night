@@ -4,7 +4,8 @@ Source repository for setting up a private movie sharing website.
 
 ## Features
 
--  Automated infrastructure management with Terraform and Ansible
+-  Simple HTTPS interface for movie-watching
+-  Automated infrastructure management with Terraform and Ansible (so you can easily shutdown/start server to save cost)
 -  Automated movie syncing
 
 ## Usage

@@ -25,3 +25,6 @@
     state: started
     daemon_reload: yes
     enabled: yes
+
+- name: Reload caddy
+  command: systemctl reload caddy

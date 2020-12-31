@@ -20,6 +20,9 @@ provision-helper:
 		{{ IP_ADDRESS }} ansible_user=root ansible_ssh_private_key_file=../{{ SSH_KEY }}
 	EOF
 
+ansible:
+	cd ansible && ansible-playbook -i inventory.ini playbook.yml
+
 provision:
 	cd terraform && terraform apply
 	just provision-helper

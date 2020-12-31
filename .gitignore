@@ -8,3 +8,4 @@ node_modules/
 ssh_key
 ssh_key.pub
 *.log
+src/*.js

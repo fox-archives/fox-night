@@ -1,3 +1,3 @@
-{{ domain_name }}:443
+{{ domain_name }}
 
-reverse_proxy localhost:3000
+reverse_proxy localhost:{{ port }}
