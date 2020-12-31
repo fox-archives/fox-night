@@ -20,3 +20,6 @@ indent_style = space
 
 [*.{diff,md,snap}]
 trim_trailing_whitespace = false
+
+[*.md]
+tab_width = 2

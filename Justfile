@@ -5,7 +5,7 @@ IP_ADDRESS := `cd terraform && terraform output fox_night_droplet_ip_address`
 default: (provision_tag "rsync")
 
 prepare-password:
-	python -c 'import crypt,getpass; print(crypt.crypt(getpass.getpass(), crypt.mksalt(crypt.METHOD_SHA512)))' >| .password
+	python -c 'import crypt,getpass; print(crypt.crypt(getpass.getpass(), crypt.mksalt(crypt.METHOD_SHA512)))'
 
 prepare:
 	ssh-keygen -t ed25519 -N '' -C 'movie' -f {{ SSH_KEY }} <<< y
