@@ -7,6 +7,6 @@
 - name: Start and Enable {{ folder_name }}.service
   systemd:
     name: '{{ folder_name }}'
-    state: started
+    state: restarted
     daemon_reload: yes
     enabled: yes
