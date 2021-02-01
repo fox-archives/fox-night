@@ -1,26 +1,12 @@
-// @ts-ignore
 const socket = io()
 
 let ID = Math.floor(Math.random() * 100000)
 console.info(`Your ID: ${ID}`)
 
 /**
- * @param {number} ee
- */
-function aa(ee) {
-	const video = document.querySelector('video')
-	if (!video) {
-		console.info('Error: video')
-		return
-	}
-
-	video.currentTime = video.currentTime + ee
-}
-
-/**
  * @returns number
  */
-function update() {
+function updateCurrentTime() {
 	const video = document.querySelector('video')
 	if (!video) {
 		return
@@ -39,10 +25,10 @@ function update() {
 	return currentTime
 }
 
-update()
+updateCurrentTime()
 setInterval(
 	() => {
-		const currentTime = update()
+		const currentTime = updateCurrentTime()
 
 		/**
 		 * @typedef {object} data
@@ -64,29 +50,13 @@ setInterval(
 	true
 )
 
-socket.on('new-average', (/** @type {string} */ average) => {
-	if (!document.querySelector('video')) {
-		return
-	}
-
-	const newAverage = Number(average)
-	// console.info('newaverage', newAverage)
-
-	// @ts-ignore
-	globalThis.averageTime = newAverage
-	const text = secondsToHms(newAverage)
-	const jumpEl = document.getElementById('jump')
-	jumpEl.innerHTML = `<b>Average</b>: ${text}`
-})
-
 /**
  * @typedef {object} watcher
  * @property {number} id
  * @property {number} lastUpdated
  * @property {number} currentTime
  */
-
-socket.on('alll', (/** @type {string} */ watchersString) => {
+socket.on('all-watchers-payload', (/** @type {string} */ watchersString) => {
 	if (!document.querySelector('video')) {
 		return
 	}
@@ -129,10 +99,14 @@ socket.on('alll', (/** @type {string} */ watchersString) => {
 		w.appendChild(f3)
 		f1.innerText = String(watcher.id)
 		f2.innerText = String(secondsToHms(watcher.currentTime))
-		const b = document.createElement('button')
-		b.innerText = 'Jump'
-		b.classList.add('jj')
-		b.onclick = (ev) => {
+		if (Number(watcher.id) == ID) {
+			f1.style.fontWeight = 'bold'
+			f2.style.fontWeight = 'bold'
+		}
+		const button = document.createElement('button')
+		button.innerText = 'Jump'
+		button.classList.add('watcher-jump-button')
+		button.onclick = (ev) => {
 			const video = document.querySelector('video')
 			if (!video) {
 				console.info('Error: video')
@@ -140,7 +114,7 @@ socket.on('alll', (/** @type {string} */ watchersString) => {
 			}
 			video.currentTime = watcher.currentTime
 		}
-		f3.appendChild(b)
+		f3.appendChild(button)
 		tbody.appendChild(w)
 	}
 
@@ -155,39 +129,3 @@ socket.on('connect', () => {
 socket.on('disconnect', () => {
 	console.info('disconnect')
 })
-
-/**
- * @param {number} d
- */
-function secondsToHms(d) {
-	if (!d) {
-		return '0 hrs 0 mins 0 sec'
-	}
-
-	d = Number(d)
-	var h = Math.floor(d / 3600)
-	var m = Math.floor((d % 3600) / 60)
-	var s = Math.floor((d % 3600) % 60)
-
-	var hDisplay = h > 0 ? h + (h == 1 ? ' hrs, ' : ' hrs, ') : ''
-	var mDisplay = m > 0 ? m + (m == 1 ? ' mins, ' : ' mins, ') : ''
-	var sDisplay = s > 0 ? s + (s == 1 ? ' sec' : ' sec') : ''
-	return hDisplay + mDisplay + sDisplay
-}
-
-document.getElementById('jumpbutton') &&
-	document.getElementById('jumpbutton').addEventListener('click', (ev) => {
-		const video = document.querySelector('video')
-		if (!video) {
-			console.info('Error: video')
-			return
-		}
-
-		// @ts-ignore
-		if (!globalThis.averageTime) {
-			console.debug('average time not truthy')
-		}
-
-		// @ts-ignore
-		video.currentTime = globalThis.averageTime
-	})

@@ -69,24 +69,18 @@ export function socketioFactory(io: SocketIO.Server) {
 
 		let average = getAverage(watchers)
 		average = Math.round(average)
-		// console.info('average')
 
 		io.emit('new-average', String(average))
 	}, 300)
 
 	globalThis.setInterval(() => {
-		io.emit('alll', JSON.stringify(watchers))
+		io.emit('all-watchers-payload', JSON.stringify(watchers))
 	}, 1000)
 
 	return (client: Socket) => {
 		client.on('new-current-time', (watcherString: string) => {
 			const watcher: watcher = JSON.parse(watcherString)
 			updateWatcher(watchers, watcher)
-
-			// console.info(watchers)
-
-			let ip = client.handshake.address
-			// console.info(ip)
 		})
 
 		client.on('disconnect', () => {

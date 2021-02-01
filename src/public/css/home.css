@@ -1,0 +1,42 @@
+#video-player {
+	max-width: 100%;
+}
+
+#video-player:active {
+	user-select: none;
+}
+
+/* #fresh {
+	position: absolute;
+	left: 300px;
+	width: 45px;
+	transform: rotateZ(10deg);
+	transition: transform 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+#fresh:hover {
+	transform: rotateZ(10deg) scale(1.05, 1.05);
+	transition: transform 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+} */
+
+.scrubber-jump-button {
+	border-radius: 4px;
+	background-color: var(--green5);
+	padding: 5px;
+	font-size: 16px;
+	margin-block-start: 4px;
+	margin-block-end: 4px;
+	margin-inline-end: 4px;
+	box-shadow: 1px 1px 3px rgb(24, 23, 23);
+}
+
+.watchers-table {
+	margin-top: 10px;
+}
+
+.watcher-jump-button {
+	padding: 4px;
+	margin-block-start: 2px;
+	border-radius: 2px;
+	background-color: var(--green5);
+}

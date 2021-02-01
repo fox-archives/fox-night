@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
 <main>
-	<video id="player" playsinline controls poster="/media/poster.jpg">
+	<video id="video-player" playsinline controls poster="/media/poster.jpg">
 		<source src="/video" type="video/mp4" />
 		<track
 			kind="captions"
@@ -11,26 +11,33 @@
 			default
 		/>
 	</video>
-	<div style="display: flex;">
+	<div style="display: flex">
 		<section>
-			<!-- <img id="fresh" src="https://www.rottentomatoes.com/static/images/icons/cf-lg.png"></img> -->
-			<h1><%= title %></h1>
+			<h1><%= locals.title %></h1>
 			<h2>Summary</h2>
-			<p><%= summary %></p>
+			<p><%= locals.summary %></p>
 
 			<h2>Director(s)</h2>
-			<p><%= director %></p>
+			<p><%= locals.director %></p>
 		</section>
-		<section style="min-width: 350px;">
+		<section style="min-width: 350px">
 			<h1>Controls</h1>
-			<h2>Progress</h2>
+			<h2>Current Time</h2>
 			<p id="time"></p>
-			<h2>Jump</h2>
-			<button class="jump-button" onclick="aa(1)">+1 Sec</button>
-			<button class="jump-button" onclick="aa(-1)">-1 Sec</button>
-			<button class="jump-button" onclick="aa(5)">+5 Sec</button>
-			<button class="jump-button" onclick="aa(-5)">-5 Sec</button>
-			<h2 class="home-watchers">Watchers</h2>
+			<h2>Scrubber</h2>
+			<button class="scrubber-jump-button" onclick="scrubVideo(-5)">
+				-5 Sec
+			</button>
+			<button class="scrubber-jump-button" onclick="scrubVideo(-1)">
+				-1 Sec
+			</button>
+			<button class="scrubber-jump-button" onclick="scrubVideo(1)">
+				+1 Sec
+			</button>
+			<button class="scrubber-jump-button" onclick="scrubVideo(5)">
+				+5 Sec
+			</button>
+			<h2 class="watchers-table">Watchers</h2>
 			<table>
 				<thead></thead>
 				<tbody></tbody>

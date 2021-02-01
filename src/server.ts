@@ -2,7 +2,6 @@ import { Express } from 'express'
 import socketio from 'socket.io'
 import { appFactory } from './app'
 import { socketioFactory } from './socket'
-import type http from 'http'
 
 appFactory()
 	.then((app: Express) => {
@@ -14,7 +13,7 @@ appFactory()
 				host: '127.0.0.1',
 			},
 			() => {
-				console.log(`on port ${port}`)
+				console.log(`Listening on port ${port}`)
 			}
 		)
 

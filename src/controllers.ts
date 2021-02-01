@@ -11,11 +11,17 @@ export async function homeController(req: Request, res: Response) {
 	const file = path.join(__dirname, '../local/info.toml')
 	const raw = await fs.promises.readFile(file)
 	const data = toml.parse(raw.toString())
-	res.render('pages/home', data)
+
+	res.render('pages/home', {
+		page: 'home',
+		...data,
+	})
 }
 
 export function aboutController(req: Request, res: Response) {
-	res.render('pages/about')
+	res.render('pages/about', {
+		page: 'about',
+	})
 }
 
 export function videoController(req: Request, res: Response) {
@@ -60,5 +66,7 @@ export function videoController(req: Request, res: Response) {
 }
 
 export function fourOhFourController(req: Request, res: Response) {
-	res.render('pages/404')
+	res.render('pages/404', {
+		page: '404',
+	})
 }

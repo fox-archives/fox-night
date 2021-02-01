@@ -11,5 +11,8 @@
 		"esModuleInterop": true,
 		"moduleResolution": "node",
 		"useDefineForClassFields": true
-	}
+	},
+	"types": [
+		"./src/@types/index.d.ts"
+	]
 }
