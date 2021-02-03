@@ -80,6 +80,8 @@ export function socketioFactory(io: SocketIO.Server) {
 	return (client: Socket) => {
 		client.on('new-current-time', (watcherString: string) => {
 			const watcher: watcher = JSON.parse(watcherString)
+			watcher.lastUpdated = Date.now()
+
 			updateWatcher(watchers, watcher)
 		})
 
@@ -90,18 +92,5 @@ export function socketioFactory(io: SocketIO.Server) {
 		client.on('connect', () => {
 			console.info('connect')
 		})
-	}
-}
-
-function throttle(cb: () => void, limit: number) {
-	var waiting = false
-	return function () {
-		if (!waiting) {
-			cb.apply(this, arguments)
-			waiting = true
-			setTimeout(() => {
-				waiting = false
-			}, limit)
-		}
 	}
 }

@@ -33,14 +33,14 @@ setInterval(
 		/**
 		 * @typedef {object} data
 		 * @property {number} id
-		 * @property {number} lastUpdated
 		 * @property {number} currentTime
 		 */
 
 		/** @type data */
 		const data = {
 			id: ID,
-			lastUpdated: Date.now(),
+			// this is handled by the server now
+			// lastUpdated: Date.now(),
 			currentTime,
 		}
 
