@@ -1,6 +1,6 @@
 const socket = io()
 
-let ID = Math.floor(Math.random() * 100000)
+globalThis.ID = Math.floor(Math.random() * 100000)
 console.info(`Your ID: ${ID}`)
 
 /**

@@ -26,7 +26,7 @@ ansible:
 provision:
 	cd terraform && terraform apply
 	just provision-helper
-	sleep 10
+	sleep 15
 	cd ansible && ansible-playbook -i inventory.ini playbook.yml
 
 ansible_tag tag='rsync-movie':

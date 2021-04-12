@@ -22,3 +22,6 @@
     src: ../../../../local
     dest: /home/{{ user }}/{{ folder_name }}
     delete: yes
+    rsync_opts:
+      - '--exclude'
+      - 'dl'
