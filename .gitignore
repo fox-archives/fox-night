@@ -1,11 +1,12 @@
-node_modules/
 *.tfvars
 *.tfstate
 *.tfstate.backup
 .terraform/
-*.mp4
-*.vtt
+
 ssh_key
 ssh_key.pub
-*.log
-src/*.js
+
+media/*
+!media/.gitkeep
+
+pkg/fox-night

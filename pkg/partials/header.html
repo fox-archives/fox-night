@@ -7,19 +7,12 @@
 			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,700&display=swap"
 			rel="stylesheet"
 		/>
-		<link href="/css/style.css" rel="stylesheet" />
-		<% if (locals.page !== "") { %>
-		<link href="/css/<%= locals.page %>.css" rel="stylesheet" />
-		<% } %> <% if(locals.page === "home") { %>
+		<link href="/public/css/style.css" rel="stylesheet" />
+		{{if .CurrentPage }}
+		<link href="/public/css/{{ .CurrentPage }}.css" rel="stylesheet" />
+		{{- end}} {{ if eq .CurrentPage "home" }}
 		<script defer src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
-		<script
-			defer
-			src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"
-		></script>
-		<script defer src="js/util.js"></script>
-		<script defer src="js/video-scrubber.js"></script>
-		<script defer src="js/video-watchers.js"></script>
-		<% } %>
+		{{- end}}
 
 		<title>Fox Night</title>
 	</head>

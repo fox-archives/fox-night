@@ -1,12 +1,12 @@
 # Fox Night
 
-Source repository for setting up a private movie sharing website.
+Simple movie sharing and syncing website
 
 ## Features
 
 - Simple HTTPS interface for movie-watching
 - Automated infrastructure management with Terraform and Ansible (so you can easily shutdown/start server to save cost)
-- Automated movie syncing
+- Easily change movies and movie metadata
 
 ## Usage
 
@@ -15,16 +15,14 @@ Source repository for setting up a private movie sharing website.
 - [Just](https://github.com/casey/just)
 - [Ansible](https://github.com/ansible/ansible)
 - [Terraform](https://github.com/hashicorp/terraform)
-- Node 14
-- [Yarn](https://github.com/yarnpkg/yarn)
+- [Go](https://golang.org)
 
 ### Development
 
 ```sh
 git clone https://github.com/eankeen/fox-night
-cd fox-night
-yarn install
-yarn build && yarn start
+cd fox-night/pkg
+go run .
 ```
 
 ### Deployment
@@ -45,7 +43,7 @@ Variables contained within this IAC should be flexible enough to cater to you. T
 - `domain_name`
 
   - domain name. Used for Caddy's automatic HTTPS certification registration
-  - Ensure registrar is pointing to DigitalOcean's name servers (`ns1.digitalocean.com`, etc). (We will handle the rest)
+  - Just ensure registrar is pointing to DigitalOcean's name servers (`ns1.digitalocean.com`, etc). (`fox-night` handles the rest)
 
 - `folder_name`
 
@@ -59,9 +57,9 @@ Variables contained within this IAC should be flexible enough to cater to you. T
 
   - password to enter when navigating to site (by default, the same value as `folder_name`)
 
-- `node_port`
+- `listen_port`
 
-  - port that the NodeJS server attaches to
+  - port that the Go server attaches to
 
 - `digital_ocean_token`
 
@@ -84,7 +82,7 @@ just provision_tag rsync-movie
 ```
 
 - Syncing will occur automatically on first provision
-- See `./ansible/roles/common/tasks/rsync.yml` for implementation detail. See `./old` to sync yourself
+- See `./ansible/roles/common/tasks/rsync.yml` for implementation detail
 
 ### Useful Information
 

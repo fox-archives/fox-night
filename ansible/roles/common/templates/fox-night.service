@@ -2,10 +2,10 @@
 Description=Fox Night Starter Service
 
 [Service]
-Environment=PORT={{ node_port }}
+Environment=PORT={{ listen_port }}
 User={{ user }}
-WorkingDirectory=/home/{{ user }}/{{ folder_name }}
-ExecStart=/usr/bin/npm start
+WorkingDirectory=/home/{{ user }}/{{ folder_name }}/pkg
+ExecStart=/home/{{ user }}/{{ folder_name }}/pkg/fox-night
 ExecStop=/usr/bin/kill $MAINPID
 StandardInput=tty
 TTYPath=/dev/tty20

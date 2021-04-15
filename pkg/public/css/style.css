@@ -22,7 +22,7 @@ body {
 nav {
 	display: flex;
 	align-items: center;
-	font-family: 'Nunito', system-ui, Arial, Helvetica, sans-serif;
+	font-family: "Nunito", system-ui, Arial, Helvetica, sans-serif;
 	color: var(--orange5);
 }
 

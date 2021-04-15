@@ -16,24 +16,7 @@
   timezone:
     name: America/Los_Angeles
 
-- name: Install NodeJS
-  block:
-    - name: Add Key
-      apt_key:
-        state: present
-        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    - name: Add Repositories
-      apt_repository:
-        state: present
-        repo: deb http://deb.nodesource.com/node_14.x focal main
-        filename: nodesource
-    - name: Install NodeJS
-      apt:
-        state: present
-        name:
-          - nodejs
-
-- name: rsync
+- name: rsync code and movie
   import_tasks: rsync.yml
   tags: rsync
 
@@ -41,20 +24,7 @@
   import_tasks: ufw.yml
   tags: ufw
 
-- name: Prepare Application
-  block:
-    - name: npm install
-      command:
-        chdir: /home/{{ user }}/{{ folder_name }}
-        cmd: npm install
-
-    - name: npm run build
-      command:
-        chdir: /home/{{ user }}/{{ folder_name }}
-        cmd: npm run build
-  tags: build
-
-- name: Systemd Start NodeJS
+- name: Systemd Start GoLang
   import_tasks: systemd.yml
   tags: systemd
 

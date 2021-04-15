@@ -1,0 +1,16 @@
+- name: Install NodeJS
+  block:
+    - name: Add Key
+      apt_key:
+        state: present
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    - name: Add Repositories
+      apt_repository:
+        state: present
+        repo: deb http://deb.nodesource.com/node_14.x focal main
+        filename: nodesource
+    - name: Install NodeJS
+      apt:
+        state: present
+        name:
+          - nodejs

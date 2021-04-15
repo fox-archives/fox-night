@@ -4,5 +4,5 @@ password: ubuntu2
 domain_name: fox-night.com
 folder_name: fox-night
 web_username: username
-web_password: '{{ folder_name }}'
-node_port: '3000'
+web_password: "{{ folder_name }}"
+listen_port: "3000"
