@@ -3,10 +3,11 @@
 *.tfstate.backup
 .terraform/
 
+fox-night
+
 ssh_key
 ssh_key.pub
 
-media/*
-!media/.gitkeep
-
-pkg/fox-night
+# Entries below this point are managed by Please (DO NOT EDIT)
+plz-out
+.plzconfig.local

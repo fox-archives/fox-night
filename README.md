@@ -10,6 +10,8 @@ Simple movie sharing and syncing website
 
 ## Usage
 
+Note: You are likely looking for the `backend-javascript` branch. The current Go version is not finished
+
 ### Prerequisites
 
 - [Just](https://github.com/casey/just)

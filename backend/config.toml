@@ -1,0 +1,12 @@
+rootMovieDirs = [
+	"/storage/rodinia/Media/Movies",
+]
+
+tvShowsDirs = [
+
+]
+
+scanDirs = [
+	"/storage/rodinia/Media/Films",
+	"/storage/rodinia/Media/TV Shows"
+]
