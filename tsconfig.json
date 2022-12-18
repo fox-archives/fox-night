@@ -12,7 +12,5 @@
 		"moduleResolution": "node",
 		"useDefineForClassFields": true
 	},
-	"types": [
-		"./src/@types/index.d.ts"
-	]
+	"types": ["./src/@types/index.d.ts"]
 }
